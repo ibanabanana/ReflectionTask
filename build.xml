@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ReflectionTaskBuild" default="main">
+    <property name="jarname" value="ReflectionTask"/>
+    <property name="classesdir" value="build"/>
+    <property name="jardir" value="build/jar"/>
+    <property name="mainclass" value="by.epamlab.reftask.Runner"/>
+    <property name="srcdir" value="src"/>
+    <property name="classpath" value="src"/>
+
+    <macrodef name="buildproject">
+        <attribute name="classesdir" />
+        <attribute name="jardir" />
+        <attribute name="mainclass" />
+
+
+        <element name="projectsrcdir" />
+        <element name="projectclasspath" />
+        <element name="projectclassdir"/>
+
+        <sequential>
+            <delete dir="@{classesdir}" />
+            <mkdir dir="@{classesdir}" />
+            <javac destdir="@{classesdir}" includeantruntime="false">
+                <src>
+                    <projectsrcdir/>
+                </src>
+
+                <classpath>
+                    <projectclasspath />
+                </classpath>
+            </javac>
+            <mkdir dir="@{jardir}"/>
+            <jar basedir="@{classesdir}" destfile="@{jardir}/${jarname}">
+                <manifest>
+                    <attribute name="Main-Class" value="@{mainclass}" />
+                </manifest>
+            </jar>
+
+            <java jar="@{jardir}/${jarname}" fork="true" />
+
+        </sequential>
+    </macrodef>
+
+    <target name="build-project">
+        <buildproject classesdir="${classesdir}"
+                      jardir="${jardir}"
+                      mainclass="${mainclass}">
+            <projectsrcdir>
+                <path path="${srcdir}" />
+            </projectsrcdir>
+            <projectclassdir>
+                <path path="${classesdir}"/>
+            </projectclassdir>
+            <projectclasspath>
+                <fileset dir="${classpath}/" />
+            </projectclasspath>
+        </buildproject>
+    </target>
+
+    <target name="main" depends="build-project">
+    </target>
+
+</project>
