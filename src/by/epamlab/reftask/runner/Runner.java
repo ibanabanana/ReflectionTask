@@ -1,4 +1,4 @@
-
+package by.epamlab.reftask.runner;
 
 
 import by.epamlab.reftask.beans.Bus;
@@ -17,24 +17,25 @@ public final class Runner {
     private Runner() { }
     /**
      * Main method
-     * @param args  
+     * @param args command line arguments
      */
     public static void main(final String[] args) {
 
         Reviewable van = new Van("FORD Galaxy", "for family", 8, 220);
-        Reviewable bus = new Bus("FORD Galaxy", "for business", 10, 200);
+        Reviewable bus = new Bus("FORD Galaxy", "for family", 10, 200);
+        Reviewable vehicle = new Van("FORD Transit", "for business", 12, 240);
+
         try {
             Boolean isEqual = VehicleComparator.equalObjects(van, bus);
             System.out.println(isEqual);
+            try {
+                ProxyBuildFactory.getInstance(vehicle.getClass());
+            } catch (InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                e.printStackTrace();
+            }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-            Reviewable person = new Van("FORD Transit", "Football", 12, 240);
-        try {
-            ProxyBuildFactory.getInstance(person.getClass());
-        } catch (IllegalAccessException | InstantiationException
-                | InvocationTargetException | NoSuchMethodException e) {
-            e.printStackTrace();
-        }
+
     }
 }

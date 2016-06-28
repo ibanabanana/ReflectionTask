@@ -6,18 +6,17 @@ import by.epamlab.reftask.annotations.Equal;
 /**
  * Created by Andrei Halauneu on 16.06.16.
  */
+
 public final class VehicleComparator {
-
     private VehicleComparator() { }
-
     /**
      * Checks two objects for equality according to their annotations
      * If both objects have equal values in all equal fields, consider objects are equal.
-     * If annotations on fields are different - objects are not equals
+     * If annotations on fields are different - objects are not equal
      *
      * @param object1 first object
      * @param object2 second object
-     * @throws IllegalAccessException when access not successful
+     * @throws IllegalAccessException access failed
      * @return true - if equal, false - if not
      */
     public static boolean equalObjects(final Object object1, final Object object2) throws IllegalAccessException {

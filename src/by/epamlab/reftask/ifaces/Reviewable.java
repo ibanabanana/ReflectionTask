@@ -5,7 +5,7 @@ package by.epamlab.reftask.ifaces;
  */
 public interface Reviewable {
         /**
-         * Technical feature
+         * Criteria
          */
         void overview();
         }

@@ -7,19 +7,17 @@ import java.lang.reflect.InvocationTargetException;
 
 
 /**
- * Created by Andrei Halauneu on 16.06.2016.
+ * Created by Andrei Halauneu on 16.06.16.
  */
-public final class ProxyBuildFactory {
 
+public final class ProxyBuildFactory {
     private ProxyBuildFactory() {
     }
 
     /**
-     * Checks required class for @Proxy annotation, define either Proxy object or instance should be created,
-     * makes it and return.
-     *
-     * @param clazz - reference for what the method should returned the instance
-     * @return returned Proxy object (if annotation @Proxy presents) or simple instance of suited class
+     * Checking for @Proxy annotation, defining Proxy creation
+     * @param clazz - reference for the method to return the instance
+     * @return returns Proxy object (if annotation @Proxy presents) or simple instance of suited class
      * @throws IllegalAccessException IllegalAccessException
      * @throws InstantiationException   InstantiationException
      * @throws NoSuchMethodException    NoSuchMethodException

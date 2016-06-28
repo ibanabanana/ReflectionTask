@@ -3,7 +3,7 @@
     <property name="jarname" value="ReflectionTask"/>
     <property name="classesdir" value="build"/>
     <property name="jardir" value="build/jar"/>
-    <property name="mainclass" value="by.epamlab.reftask.Runner"/>
+    <property name="mainclass" value="by.epamlab.reftask.runner.Runner"/>
     <property name="srcdir" value="src"/>
     <property name="classpath" value="src"/>
 

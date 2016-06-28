@@ -10,15 +10,15 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Equal {
     /**
-     * Describe options for equality analizer.
+     * Equality analyzer description
      */
     enum CompareBy {
         REFERENCE, VALUE
     }
 
     /**
-     * @Equal should be marked fields, that will be checked for equality
-     * @return  Comparing options
+     * @Equal fields to check for equality
+     * @return  comparing options
      */
     CompareBy compareBy () default CompareBy.VALUE;
 }

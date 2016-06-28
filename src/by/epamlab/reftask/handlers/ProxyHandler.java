@@ -6,16 +6,15 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * Created by Andrei Halauneu on 16.06.2016.
+ * Created by Andrei Halauneu on 16.06.16.
  */
 
 public class ProxyHandler implements InvocationHandler {
     private Reviewable vehicle;
 
     /**
-     * Constructor using fields
-     *
-     * @param vehicle -  needed object
+     * Constructor from fields
+     * @param vehicle - required object
      */
     public ProxyHandler(final Reviewable vehicle) {
         this.vehicle = vehicle;

@@ -11,7 +11,7 @@ import java.lang.reflect.InvocationHandler;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Proxy {
     /**
-     * Annotation indicate should be proxy of suitable class created or not.
+     * Suitability for proxy creation
      * @return invocationHandler - suitable object of InvocationHandler type.
      */
     Class<? extends InvocationHandler> invocationHandler ();
